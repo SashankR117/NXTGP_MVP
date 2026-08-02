@@ -12,13 +12,14 @@ export default function ResetButton() {
         dispatch({ type: "RESET" });
         dispatch({ type: "SHOW_TOAST", message: "Demo data restored to initial state", toastType: "info" });
       }}
-      className="fixed bottom-24 right-4 z-50 bg-dash-card-hover border border-dash-border rounded-full p-3 shadow-xl hover:bg-dash-border transition-all group max-w-[430px]"
+      className="absolute bottom-16 right-3 z-40 bg-white border border-gray-200 rounded-full p-2.5 shadow-lg hover:bg-gray-100 transition-all group"
       title="Reset Demo Data"
     >
       <RotateCcw
-        size={18}
-        className="text-dash-text-secondary group-hover:text-dash-accent-green transition-colors group-hover:rotate-[-360deg] duration-500"
+        size={16}
+        className="text-gray-600 group-hover:text-[#0C831F] transition-colors group-hover:rotate-[-360deg] duration-500"
       />
     </button>
   );
 }
+

@@ -11,17 +11,18 @@ export default function GraderGuide() {
       {/* Floating Toggle Button */}
       <button
         onClick={() => dispatch({ type: "TOGGLE_GRADER_GUIDE" })}
-        className="fixed bottom-20 left-4 z-50 bg-black text-[#F8CB46] border border-[#F8CB46]/40 rounded-full px-3.5 py-2 shadow-2xl hover:bg-gray-900 transition-all flex items-center gap-1.5 font-bold text-xs"
+        className="absolute bottom-16 left-3 z-40 bg-black text-[#F8CB46] border border-[#F8CB46]/40 rounded-full px-3 py-1.5 shadow-xl hover:bg-gray-900 transition-all flex items-center gap-1.5 font-bold text-[11px]"
         title="Evaluation Script v2"
       >
-        <FlaskConical size={16} className="text-[#F8CB46]" />
-        <span>Grader Guide v2</span>
+        <FlaskConical size={14} className="text-[#F8CB46]" />
+        <span>Grader Guide</span>
       </button>
 
       {/* Evaluation Modal */}
       {state.graderGuideOpen && (
-        <div className="fixed inset-0 z-[200] bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white border border-gray-200 rounded-2xl max-w-[420px] w-full max-h-[85vh] overflow-y-auto shadow-2xl animate-fade-in text-gray-800">
+        <div className="absolute inset-0 z-[100] bg-black/60 backdrop-blur-xs flex items-center justify-center p-3">
+          <div className="bg-white border border-gray-200 rounded-2xl max-w-[380px] w-full max-h-[80vh] overflow-y-auto shadow-2xl animate-fade-in text-gray-800">
+
             {/* Modal Header */}
             <div className="flex items-center justify-between p-4 border-b border-gray-200 sticky top-0 bg-[#F8CB46] text-black rounded-t-2xl">
               <div className="flex items-center gap-2">

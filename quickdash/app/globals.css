@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-blinkit-yellow: #F4C430;
+  --color-blinkit-yellow: #F8CB46;
+  --color-blinkit-yellow-dark: #F4C430;
   --color-blinkit-yellow-light: #FFF9E6;
   --color-blinkit-green: #0C831F;
   --color-blinkit-green-hover: #096918;
@@ -15,17 +16,16 @@
   --font-family-sans: "Inter", system-ui, sans-serif;
 }
 
-/* Base */
-html {
-  background-color: #E5E7EB;
+/* Base Outer Canvas */
+html, body {
+  background-color: #0A0B10;
   color: #1F2937;
-}
-
-body {
   font-family: var(--font-family-sans);
-  background-color: #E5E7EB;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
 /* Custom scrollbar */
@@ -51,42 +51,65 @@ body {
   display: none;
 }
 
-/* Blinkit specific UI utilities */
-.blinkit-header-gradient {
-  background: linear-gradient(180deg, #F4C430 0%, #F9DB6D 100%);
+/* Blinkit UI Utilities */
+.blinkit-header-yellow {
+  background-color: #F8CB46;
 }
 
 .blinkit-card {
   background: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  border-radius: 12px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.blinkit-btn-add {
+  border: 1px solid #0C831F;
+  color: #0C831F;
+  background-color: #F7FFF9;
+  font-weight: 700;
+  border-radius: 8px;
+  transition: all 0.15s ease-in-out;
+}
+.blinkit-btn-add:hover {
+  background-color: #E8F5E9;
 }
 
 .blinkit-badge-green {
   background-color: #E8F5E9;
   color: #0C831F;
-  font-weight: 600;
+  font-weight: 700;
   border: 1px solid #C8E6C9;
 }
 
 .blinkit-badge-orange {
   background-color: #FFF3E0;
   color: #E65100;
-  font-weight: 600;
+  font-weight: 700;
   border: 1px solid #FFE0B2;
 }
 
-.blinkit-btn-green {
-  background-color: #0C831F;
-  color: #FFFFFF;
-  font-weight: 700;
-  border-radius: 8px;
-  transition: all 0.15s ease;
+/* Phone Frame Device Styling */
+.phone-ambient-backdrop {
+  background: radial-gradient(circle at 50% 30%, #1a1b26 0%, #0d0e15 60%, #050508 100%);
 }
-.blinkit-btn-green:hover {
-  background-color: #096918;
+
+.phone-shell {
+  border-radius: 54px;
+  border: 11px solid #1c1e28;
+  box-shadow: 
+    0 0 0 2px rgba(255, 255, 255, 0.08),
+    0 25px 70px -15px rgba(0, 0, 0, 0.95),
+    0 0 40px rgba(0, 0, 0, 0.8),
+    inset 0 0 12px rgba(255, 255, 255, 0.05);
 }
-.blinkit-btn-green:active {
-  transform: scale(0.98);
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
 }
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+

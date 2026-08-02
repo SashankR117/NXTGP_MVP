@@ -16,17 +16,17 @@ export default function ToastContainer() {
   }, [state.toasts, dispatch]);
 
   return (
-    <div className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] flex flex-col gap-2 max-w-[400px] w-full px-4">
+    <div className="absolute top-16 left-1/2 -translate-x-1/2 z-[90] flex flex-col gap-2 w-[90%] max-w-[360px] pointer-events-none">
       {state.toasts.map((toast) => (
         <div
           key={toast.id}
-          className="animate-slide-up bg-dash-card border border-dash-border-accent rounded-xl px-4 py-3 flex items-center gap-3 shadow-2xl"
+          className="animate-slide-up bg-black text-white border border-[#F8CB46]/30 rounded-xl px-3.5 py-2.5 flex items-center gap-2.5 shadow-2xl pointer-events-auto cursor-pointer"
           onClick={() => dispatch({ type: "DISMISS_TOAST", id: toast.id })}
         >
-          <span className="text-lg">
-            {toast.type === "success" ? "✅" : "ℹ️"}
+          <span className="text-base flex-shrink-0">
+            {toast.type === "success" ? "⚡" : "ℹ️"}
           </span>
-          <p className="text-sm text-dash-text-primary font-medium flex-1">
+          <p className="text-xs text-white font-medium flex-1">
             {toast.message}
           </p>
         </div>
@@ -34,3 +34,4 @@ export default function ToastContainer() {
     </div>
   );
 }
+

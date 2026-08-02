@@ -6,7 +6,7 @@ import BottomNav from "@/components/ui/BottomNav";
 import ToastContainer from "@/components/ui/ToastContainer";
 import ResetButton from "@/components/ui/ResetButton";
 import GraderGuide from "@/components/ui/GraderGuide";
-import PersonaSwitcher from "@/components/ui/PersonaSwitcher";
+import PhoneFrame from "@/components/ui/PhoneFrame";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,16 +15,16 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "QuickDash — AI-Powered Quick Commerce",
+  title: "Blinkit — Everything delivered in 8 minutes",
   description:
-    "QuickDash MVP: An AI-native quick commerce platform driving cross-category product discovery through smart subscriptions, hyperlocal trends, and social commerce.",
+    "Blinkit Quick Commerce MVP: Subscriptions, Hyperlocal Demand, and Social Circles.",
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
-  themeColor: "#051424",
+  themeColor: "#F8CB46",
 };
 
 export default function RootLayout({
@@ -34,28 +34,26 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="bg-dash-bg text-dash-text-primary min-h-screen font-sans">
+      <body className="bg-[#0A0B10] text-gray-900 min-h-screen font-sans antialiased">
         <AppProvider>
-          {/* Mobile container */}
-          <div className="mx-auto max-w-[430px] min-h-screen relative pb-20">
-            {/* Persona switcher header */}
-            <PersonaSwitcher />
+          {/* Smartphone Mockup Frame */}
+          <PhoneFrame>
+            {/* Main scrollable content area */}
+            <main className="flex-1 pb-20">{children}</main>
 
-            {/* Main content */}
-            <main>{children}</main>
-
-            {/* Bottom navigation */}
+            {/* Bottom navigation bar */}
             <BottomNav />
 
-            {/* Floating controls */}
+            {/* Floating evaluation controls */}
             <ResetButton />
             <GraderGuide />
 
             {/* Toast notifications */}
             <ToastContainer />
-          </div>
+          </PhoneFrame>
         </AppProvider>
       </body>
     </html>
   );
 }
+
