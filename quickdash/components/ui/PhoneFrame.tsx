@@ -28,8 +28,9 @@ export default function PhoneFrame({
 
   return (
     <div className="h-screen w-screen phone-ambient-backdrop flex items-center justify-center p-2 sm:p-4 overflow-hidden select-none">
-      {/* Phone outer container (Standard realistic phone width 385px) */}
-      <div className="relative h-[94vh] max-h-[830px] w-[385px] max-w-full phone-shell bg-black flex flex-col overflow-hidden select-none shadow-2xl">
+      {/* Phone outer container (Aspect-ratio locked 9:19.5 so it stays perfectly proportioned on laptops & monitors) */}
+      <div className="relative h-[93vh] max-h-[830px] aspect-[9/19.5] w-auto max-w-[390px] phone-shell bg-black flex flex-col overflow-hidden select-none shadow-2xl">
+
         
         {/* Phone Glass Shine Effect */}
         <div className="absolute top-0 right-0 w-32 h-60 bg-gradient-to-bl from-white/5 to-transparent pointer-events-none z-50 rounded-tr-[42px]" />
