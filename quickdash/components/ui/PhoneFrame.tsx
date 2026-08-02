@@ -28,11 +28,12 @@ export default function PhoneFrame({
 
   return (
     <div className="h-screen w-screen phone-ambient-backdrop flex items-center justify-center p-2 sm:p-4 overflow-hidden select-none">
-      {/* Phone outer container (Sized wider and taller to fit screen height perfectly) */}
-      <div className="relative h-[94vh] max-h-[870px] w-full max-w-[450px] phone-shell bg-black flex flex-col overflow-hidden select-none shadow-2xl">
+      {/* Phone outer container (Standard realistic phone width 385px) */}
+      <div className="relative h-[94vh] max-h-[830px] w-[385px] max-w-full phone-shell bg-black flex flex-col overflow-hidden select-none shadow-2xl">
         
         {/* Phone Glass Shine Effect */}
-        <div className="absolute top-0 right-0 w-36 h-64 bg-gradient-to-bl from-white/5 to-transparent pointer-events-none z-50 rounded-tr-[44px]" />
+        <div className="absolute top-0 right-0 w-32 h-60 bg-gradient-to-bl from-white/5 to-transparent pointer-events-none z-50 rounded-tr-[42px]" />
+
 
         {/* Dynamic Island / Notch */}
         <div className="absolute top-2 left-1/2 -translate-x-1/2 w-28 h-5.5 bg-black rounded-full z-50 flex items-center justify-between px-2.5 shadow-md pointer-events-none">

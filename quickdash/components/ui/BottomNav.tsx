@@ -15,8 +15,8 @@ export default function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="absolute bottom-0 left-0 right-0 w-full bg-white border-t border-gray-200 z-40 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
-      <div className="flex items-center justify-around py-2 px-2">
+    <nav className="absolute bottom-0 left-0 right-0 w-full bg-white border-t border-gray-200 z-40 shadow-[0_-3px_10px_rgba(0,0,0,0.04)]">
+      <div className="flex items-center justify-around py-1 px-1">
         {tabs.map((tab) => {
           const isActive =
             tab.href === "/" ? pathname === "/" : pathname.startsWith(tab.href);
@@ -26,19 +26,19 @@ export default function BottomNav() {
             <Link
               key={tab.label}
               href={tab.href}
-              className={`flex flex-col items-center gap-0.5 py-0.5 px-3 transition-all rounded-xl ${
+              className={`flex flex-col items-center gap-0.5 py-0.5 px-2.5 transition-all rounded-xl ${
                 isActive
                   ? "text-[#0C831F] font-bold"
                   : "text-gray-400 hover:text-gray-700 font-medium"
               }`}
             >
               <div className="relative">
-                <Icon size={20} className={isActive ? "stroke-[2.5]" : "stroke-[1.8]"} />
+                <Icon size={18} className={isActive ? "stroke-[2.5]" : "stroke-[1.8]"} />
                 {isActive && (
                   <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#0C831F]" />
                 )}
               </div>
-              <span className="text-[10px] tracking-tight">{tab.label}</span>
+              <span className="text-[9px] tracking-tight">{tab.label}</span>
             </Link>
           );
         })}
@@ -46,4 +46,5 @@ export default function BottomNav() {
     </nav>
   );
 }
+
 

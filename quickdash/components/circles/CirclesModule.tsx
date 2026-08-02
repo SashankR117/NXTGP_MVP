@@ -243,7 +243,7 @@ export default function CirclesModule() {
 
           {/* Horizontally Scrollable Friends Products Cards (Product-Focused, Real Images & Stepper) */}
           {sortedFriendShelfItems.length > 0 ? (
-            <div className="flex gap-2.5 overflow-x-auto hide-scrollbar pb-1">
+            <div className="flex gap-2 overflow-x-auto hide-scrollbar pb-0.5">
               {sortedFriendShelfItems.map((item) => {
                 const friend = getPersonaById(item.userId);
                 const product = getProductById(item.productId);
@@ -256,7 +256,7 @@ export default function CirclesModule() {
                 return (
                   <div
                     key={item.id}
-                    className={`flex-shrink-0 w-36 bg-white rounded-xl border p-2.5 shadow-xs overflow-hidden flex flex-col justify-between hover:border-[#0C831F]/40 transition-all group ${
+                    className={`flex-shrink-0 w-32 bg-white rounded-xl border p-2 shadow-xs overflow-hidden flex flex-col justify-between hover:border-[#0C831F]/40 transition-all group ${
                       isNewCategoryForViewer
                         ? "border-[#0C831F]/40 bg-gradient-to-b from-emerald-50/40 to-white"
                         : "border-gray-200"
@@ -264,22 +264,22 @@ export default function CirclesModule() {
                   >
                     <div>
                       {/* Peer Hint Badge */}
-                      <div className="bg-gray-50 px-1.5 py-0.5 rounded-md mb-1.5 border border-gray-100 flex items-center gap-1 truncate">
-                        <span className="text-xs">{friend.avatarEmoji}</span>
-                        <span className="text-[9px] font-bold text-gray-700 truncate">
+                      <div className="bg-gray-50 px-1 py-0.5 rounded mb-1 border border-gray-100 flex items-center gap-1 truncate">
+                        <span className="text-[11px]">{friend.avatarEmoji}</span>
+                        <span className="text-[8.5px] font-bold text-gray-700 truncate">
                           {friend.fullName.split(" ")[0]}'s {item.type === "liked" ? "Liked ❤️" : "Repeat 🔁"}
                         </span>
                       </div>
 
                       {/* Discovery Highlight */}
                       {isNewCategoryForViewer && (
-                        <div className="bg-green-100 px-1.5 py-0.2 rounded text-[8px] font-extrabold text-[#0C831F] mb-1.5 flex items-center gap-0.5 truncate">
-                          <Sparkles size={8} /> New Category!
+                        <div className="bg-green-100 px-1 py-0.2 rounded text-[7.5px] font-extrabold text-[#0C831F] mb-1 flex items-center gap-0.5 truncate">
+                          <Sparkles size={7} /> New Category!
                         </div>
                       )}
 
                       {/* Real Product Image */}
-                      <div className="w-full h-20 rounded-lg overflow-hidden my-1 bg-gray-100 flex items-center justify-center">
+                      <div className="w-full h-18 rounded-lg overflow-hidden my-0.5 bg-gray-100 flex items-center justify-center">
                         <img
                           src={product.imageUrl}
                           alt={product.name}
@@ -287,18 +287,18 @@ export default function CirclesModule() {
                         />
                       </div>
 
-                      <p className="text-[11px] font-bold text-gray-900 line-clamp-2 leading-tight min-h-[28px] mt-1">
+                      <p className="text-[10px] font-bold text-gray-900 line-clamp-2 leading-tight min-h-[26px] mt-1">
                         {product.name}
                       </p>
 
-                      <p className="text-[9px] text-gray-500 font-medium truncate mt-0.5">
+                      <p className="text-[8.5px] text-gray-500 font-medium truncate mt-0.5">
                         {product.category}
                       </p>
                     </div>
 
                     {/* Pricing & Stepper UI */}
-                    <div className="mt-2 pt-1.5 border-t border-gray-100 flex items-center justify-between">
-                      <span className="text-[11px] font-extrabold text-gray-900">
+                    <div className="mt-1.5 pt-1 border-t border-gray-100 flex items-center justify-between">
+                      <span className="text-[10.5px] font-extrabold text-gray-900">
                         ₹{product.price}
                       </span>
 
@@ -310,9 +310,9 @@ export default function CirclesModule() {
               })}
             </div>
           ) : (
-            <div className="bg-white rounded-xl p-4 border border-gray-200 text-center">
-              <p className="text-xs font-bold text-gray-700">No Friend Items Shared Yet</p>
-              <p className="text-[10px] text-gray-500 mt-0.5">Accept or send pending requests to see peer picks.</p>
+            <div className="bg-white rounded-xl p-3 border border-gray-200 text-center">
+              <p className="text-[11px] font-bold text-gray-700">No Friend Items Shared Yet</p>
+              <p className="text-[9px] text-gray-500 mt-0.5">Accept or send pending requests to see peer picks.</p>
             </div>
           )}
         </div>
@@ -320,3 +320,4 @@ export default function CirclesModule() {
     </div>
   );
 }
+

@@ -72,23 +72,23 @@ export default function HyperlocalWidget({ isStandalone = false }: { isStandalon
       {/* Layout Option: Horizontal Scroll (Home) vs Vertical 2-Column Grid (Full Screen) */}
       {isStandalone ? (
         /* Requirement 3: Full screen /trending is Vertical Scrollable 2-Column Grid */
-        <div className="grid grid-cols-2 gap-3 pb-8">
+        <div className="grid grid-cols-2 gap-2.5 pb-6">
           {trends.map(({ product, trend, growthTag, buyerCountText }) => (
             <div
               key={product.id}
-              className="bg-white rounded-2xl border border-gray-200 shadow-xs overflow-hidden flex flex-col justify-between hover:border-[#0C831F]/40 transition-all group p-3"
+              className="bg-white rounded-2xl border border-gray-200 shadow-xs overflow-hidden flex flex-col justify-between hover:border-[#0C831F]/40 transition-all group p-2.5"
             >
               <div>
                 {/* Surge Tag */}
-                <div className="bg-[#FFF9E6] px-2 py-1 rounded-md mb-2 text-center">
-                  <span className="text-[10px] font-extrabold text-amber-900 flex items-center justify-center gap-0.5 truncate">
-                    <Flame size={11} className="text-amber-600 fill-amber-600 flex-shrink-0" />
+                <div className="bg-[#FFF9E6] px-1.5 py-0.5 rounded text-center mb-1">
+                  <span className="text-[9px] font-extrabold text-amber-900 flex items-center justify-center gap-0.5 truncate">
+                    <Flame size={10} className="text-amber-600 fill-amber-600 flex-shrink-0" />
                     {growthTag}
                   </span>
                 </div>
 
                 {/* Real Product Image */}
-                <div className="w-full h-28 rounded-xl overflow-hidden my-1 bg-gray-100 flex items-center justify-center">
+                <div className="w-full h-24 rounded-lg overflow-hidden my-1 bg-gray-100 flex items-center justify-center">
                   <img
                     src={product.imageUrl}
                     alt={product.name}
@@ -96,50 +96,45 @@ export default function HyperlocalWidget({ isStandalone = false }: { isStandalon
                   />
                 </div>
 
-                <p className="text-xs font-extrabold text-gray-900 line-clamp-2 leading-tight mt-1.5 min-h-[32px]">
+                <p className="text-[11px] font-extrabold text-gray-900 line-clamp-2 leading-tight mt-1 min-h-[28px]">
                   {product.name}
                 </p>
 
-                <p className="text-[10px] text-gray-500 font-medium truncate mt-0.5">
+                <p className="text-[9px] text-gray-500 font-medium truncate mt-0.5">
                   {product.category} {product.weight ? `• ${product.weight}` : ""}
                 </p>
 
                 {/* Trust Badges */}
-                <div className="flex items-center gap-1.5 mt-2 pt-2 border-t border-gray-100 flex-wrap">
-                  <span className="text-[10px] font-bold text-gray-800 flex items-center gap-0.5">
-                    <Star size={10} className="text-amber-500 fill-amber-500" />
+                <div className="flex items-center gap-1 mt-1.5 pt-1.5 border-t border-gray-100 flex-wrap">
+                  <span className="text-[9px] font-bold text-gray-800 flex items-center gap-0.5">
+                    <Star size={9} className="text-amber-500 fill-amber-500" />
                     {product.rating}
                   </span>
-                  <span className="text-[9px] font-bold text-[#0C831F] bg-green-50 px-1.5 py-0.5 rounded">
+                  <span className="text-[8px] font-bold text-[#0C831F] bg-green-50 px-1 py-0.2 rounded">
                     {product.reorderRate}% reorder
                   </span>
-                  {product.shelfLife && (
-                    <span className="text-[9px] font-semibold text-gray-500">
-                      {product.shelfLife}
-                    </span>
-                  )}
                 </div>
 
                 {/* Aggregate Buyer Count */}
-                <p className="text-[9px] text-gray-500 font-semibold mt-1.5 bg-gray-50 px-2 py-1 rounded-lg border border-gray-100 truncate">
+                <p className="text-[8.5px] text-gray-500 font-semibold mt-1 bg-gray-50 px-1.5 py-0.5 rounded border border-gray-100 truncate">
                   👥 {buyerCountText}
                 </p>
               </div>
 
               {/* Pricing & Stepper UI */}
-              <div className="mt-3 pt-2 border-t border-gray-100 flex items-center justify-between">
+              <div className="mt-2 pt-1.5 border-t border-gray-100 flex items-center justify-between">
                 <div>
                   {product.trialPrice ? (
                     <div>
-                      <span className="text-[10px] text-gray-400 line-through block leading-none">
+                      <span className="text-[8.5px] text-gray-400 line-through block leading-none">
                         ₹{product.price}
                       </span>
-                      <span className="text-xs font-extrabold text-[#0C831F] leading-tight">
+                      <span className="text-[11px] font-extrabold text-[#0C831F] leading-tight">
                         ₹{product.trialPrice}
                       </span>
                     </div>
                   ) : (
-                    <span className="text-xs font-extrabold text-gray-900">
+                    <span className="text-[11px] font-extrabold text-gray-900">
                       ₹{product.price}
                     </span>
                   )}
@@ -153,22 +148,22 @@ export default function HyperlocalWidget({ isStandalone = false }: { isStandalon
         </div>
       ) : (
         /* Home Widget Compact Horizontal Scroll */
-        <div className="flex gap-2.5 overflow-x-auto hide-scrollbar pb-1">
+        <div className="flex gap-2 overflow-x-auto hide-scrollbar pb-0.5">
           {trends.slice(0, 8).map(({ product, trend, growthTag, buyerCountText }) => (
             <div
               key={product.id}
-              className="flex-shrink-0 w-36 bg-white rounded-xl border border-gray-200 shadow-xs overflow-hidden flex flex-col justify-between hover:border-[#0C831F]/40 transition-all group p-2.5"
+              className="flex-shrink-0 w-32 bg-white rounded-xl border border-gray-200 shadow-xs overflow-hidden flex flex-col justify-between hover:border-[#0C831F]/40 transition-all group p-2"
             >
               <div>
-                <div className="bg-[#FFF9E6] px-1.5 py-0.5 rounded-md mb-1.5 text-center">
-                  <span className="text-[9px] font-extrabold text-amber-900 flex items-center justify-center gap-0.5 truncate">
-                    <Flame size={10} className="text-amber-600 fill-amber-600 flex-shrink-0" />
+                <div className="bg-[#FFF9E6] px-1 py-0.5 rounded mb-1 text-center">
+                  <span className="text-[8.5px] font-extrabold text-amber-900 flex items-center justify-center gap-0.5 truncate">
+                    <Flame size={9} className="text-amber-600 fill-amber-600 flex-shrink-0" />
                     {growthTag.replace(" surge in Sector 62", "")}
                   </span>
                 </div>
 
                 {/* Real Product Image */}
-                <div className="w-full h-20 rounded-lg overflow-hidden my-1 bg-gray-100 flex items-center justify-center">
+                <div className="w-full h-18 rounded-lg overflow-hidden my-0.5 bg-gray-100 flex items-center justify-center">
                   <img
                     src={product.imageUrl}
                     alt={product.name}
@@ -176,42 +171,38 @@ export default function HyperlocalWidget({ isStandalone = false }: { isStandalon
                   />
                 </div>
 
-                <p className="text-[11px] font-bold text-gray-900 line-clamp-2 leading-tight min-h-[28px] mt-1">
+                <p className="text-[10px] font-bold text-gray-900 line-clamp-2 leading-tight min-h-[26px] mt-1">
                   {product.name}
                 </p>
 
-                <p className="text-[9px] text-gray-500 font-medium truncate mt-0.5">
+                <p className="text-[8.5px] text-gray-500 font-medium truncate mt-0.5">
                   {product.category}
                 </p>
 
-                <div className="flex items-center gap-1 mt-1.5 pt-1.5 border-t border-gray-100">
-                  <span className="text-[9px] font-bold text-gray-800 flex items-center gap-0.5">
-                    <Star size={9} className="text-amber-500 fill-amber-500" />
+                <div className="flex items-center gap-1 mt-1 pt-1 border-t border-gray-100">
+                  <span className="text-[8.5px] font-bold text-gray-800 flex items-center gap-0.5">
+                    <Star size={8} className="text-amber-500 fill-amber-500" />
                     {product.rating}
                   </span>
                   <span className="text-[8px] font-bold text-[#0C831F] bg-green-50 px-1 py-0.2 rounded ml-auto">
-                    {product.reorderRate}% reorder
+                    {product.reorderRate}%
                   </span>
                 </div>
-
-                <p className="text-[8px] text-gray-500 font-semibold mt-1 bg-gray-50 px-1 py-0.5 rounded border border-gray-100 truncate">
-                  👥 {trend.rolling14dUniqueBuyers} near you
-                </p>
               </div>
 
-              <div className="mt-2 pt-1 flex items-center justify-between">
+              <div className="mt-1.5 pt-1 flex items-center justify-between">
                 <div>
                   {product.trialPrice ? (
                     <div>
-                      <span className="text-[9px] text-gray-400 line-through block leading-none">
+                      <span className="text-[8px] text-gray-400 line-through block leading-none">
                         ₹{product.price}
                       </span>
-                      <span className="text-[11px] font-extrabold text-[#0C831F] leading-tight">
+                      <span className="text-[10.5px] font-extrabold text-[#0C831F] leading-tight">
                         ₹{product.trialPrice}
                       </span>
                     </div>
                   ) : (
-                    <span className="text-[11px] font-extrabold text-gray-900">
+                    <span className="text-[10.5px] font-extrabold text-gray-900">
                       ₹{product.price}
                     </span>
                   )}
@@ -226,3 +217,4 @@ export default function HyperlocalWidget({ isStandalone = false }: { isStandalon
     </div>
   );
 }
+
