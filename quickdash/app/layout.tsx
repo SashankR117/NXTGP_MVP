@@ -34,7 +34,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="bg-[#0A0B10] text-gray-900 min-h-screen font-sans antialiased">
+      <body className="bg-[#0A0B10] text-gray-900 h-screen max-h-screen overflow-hidden font-sans antialiased">
         <AppProvider>
           {/* Smartphone Mockup Frame */}
           <PhoneFrame>
