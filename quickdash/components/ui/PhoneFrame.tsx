@@ -58,7 +58,8 @@ export default function PhoneFrame({
         </div>
 
         {/* Inner Phone Screen Canvas Container */}
-        <div className="relative flex-1 flex flex-col overflow-hidden bg-[#F4F5F8] min-h-0">
+        <div className="relative flex-1 flex flex-col overflow-hidden bg-[#F4F5F8] min-h-0 phone-screen-canvas">
+
           {/* Scrollable Viewport (Main app content ONLY!) */}
           <div className="flex-1 overflow-y-auto hide-scrollbar pb-16">
             {children}
