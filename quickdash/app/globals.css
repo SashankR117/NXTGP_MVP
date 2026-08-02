@@ -116,11 +116,35 @@ html, body {
   animation: pulseGlow 3s infinite ease-in-out;
 }
 
-/* Dynamic Responsive Scaling for App Components inside Laptop Viewports */
+/* Dynamic Responsive Scaling for App Components & Buttons inside Laptop Viewports */
 @media (max-height: 800px) {
   .phone-screen-canvas {
-    font-size: 0.92em;
+    font-size: 0.9em;
   }
+  
+  /* Scale buttons, inputs, selects, & badges */
+  .phone-screen-canvas button,
+  .phone-screen-canvas input,
+  .phone-screen-canvas select,
+  .phone-screen-canvas .blinkit-btn-add {
+    font-size: 0.88em !important;
+  }
+
+  /* Product Count Steppers (- 1 +) */
+  .phone-screen-canvas div:has(> button[title*="quantity"]),
+  .phone-screen-canvas div:has(> button[title*="Increase"]) {
+    padding-left: 0.35rem !important;
+    padding-right: 0.35rem !important;
+    padding-top: 0.15rem !important;
+    padding-bottom: 0.15rem !important;
+    font-size: 0.85em !important;
+  }
+
+  /* SVG Icons in Buttons */
+  .phone-screen-canvas button svg {
+    transform: scale(0.9);
+  }
+
   .phone-screen-canvas .p-3\.5,
   .phone-screen-canvas .p-3 {
     padding: 0.55rem !important;
@@ -150,8 +174,29 @@ html, body {
 
 @media (max-height: 700px) {
   .phone-screen-canvas {
-    font-size: 0.85em;
+    font-size: 0.82em;
   }
+
+  .phone-screen-canvas button,
+  .phone-screen-canvas input,
+  .phone-screen-canvas select,
+  .phone-screen-canvas .blinkit-btn-add {
+    font-size: 0.8em !important;
+  }
+
+  .phone-screen-canvas div:has(> button[title*="quantity"]),
+  .phone-screen-canvas div:has(> button[title*="Increase"]) {
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+    padding-top: 0.1rem !important;
+    padding-bottom: 0.1rem !important;
+    font-size: 0.78em !important;
+  }
+
+  .phone-screen-canvas button svg {
+    transform: scale(0.82);
+  }
+
   .phone-screen-canvas .p-3\.5,
   .phone-screen-canvas .p-3,
   .phone-screen-canvas .p-2\.5 {
@@ -170,6 +215,7 @@ html, body {
     width: 6.25rem !important;
   }
 }
+
 
 
 
