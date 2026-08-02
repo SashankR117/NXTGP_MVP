@@ -3,7 +3,15 @@
 import { useState, useEffect } from "react";
 import { Wifi, Signal, Battery } from "lucide-react";
 
-export default function PhoneFrame({ children }: { children: React.ReactNode }) {
+export default function PhoneFrame({
+  children,
+  bottomNav,
+  controls,
+}: {
+  children: React.ReactNode;
+  bottomNav?: React.ReactNode;
+  controls?: React.ReactNode;
+}) {
   const [timeStr, setTimeStr] = useState("10:19");
 
   useEffect(() => {
@@ -19,12 +27,12 @@ export default function PhoneFrame({ children }: { children: React.ReactNode }) 
   }, []);
 
   return (
-    <div className="h-screen w-screen phone-ambient-backdrop flex items-center justify-center p-2 overflow-hidden select-none">
-      {/* Phone outer container (Sized dynamically to fit screen height perfectly) */}
-      <div className="relative h-[93vh] max-h-[850px] aspect-[9/19.5] w-auto max-w-[420px] phone-shell bg-black flex flex-col overflow-hidden select-none shadow-2xl">
+    <div className="h-screen w-screen phone-ambient-backdrop flex items-center justify-center p-2 sm:p-4 overflow-hidden select-none">
+      {/* Phone outer container (Sized wider and taller to fit screen height perfectly) */}
+      <div className="relative h-[94vh] max-h-[870px] w-full max-w-[450px] phone-shell bg-black flex flex-col overflow-hidden select-none shadow-2xl">
         
         {/* Phone Glass Shine Effect */}
-        <div className="absolute top-0 right-0 w-32 h-64 bg-gradient-to-bl from-white/5 to-transparent pointer-events-none z-50 rounded-tr-[42px]" />
+        <div className="absolute top-0 right-0 w-36 h-64 bg-gradient-to-bl from-white/5 to-transparent pointer-events-none z-50 rounded-tr-[44px]" />
 
         {/* Dynamic Island / Notch */}
         <div className="absolute top-2 left-1/2 -translate-x-1/2 w-28 h-5.5 bg-black rounded-full z-50 flex items-center justify-between px-2.5 shadow-md pointer-events-none">
@@ -47,9 +55,18 @@ export default function PhoneFrame({ children }: { children: React.ReactNode }) 
           </div>
         </div>
 
-        {/* Inner Phone Screen Content Viewport (Only this area scrolls for app content!) */}
-        <div className="flex-1 relative bg-[#F4F5F8] overflow-y-auto hide-scrollbar flex flex-col min-h-0">
-          {children}
+        {/* Inner Phone Screen Canvas Container */}
+        <div className="relative flex-1 flex flex-col overflow-hidden bg-[#F4F5F8] min-h-0">
+          {/* Scrollable Viewport (Main app content ONLY!) */}
+          <div className="flex-1 overflow-y-auto hide-scrollbar pb-16">
+            {children}
+          </div>
+
+          {/* Locked Bottom Navigation Bar */}
+          {bottomNav}
+
+          {/* Floating Controls & Overlays */}
+          {controls}
         </div>
 
         {/* Home Indicator Bar */}
@@ -60,4 +77,5 @@ export default function PhoneFrame({ children }: { children: React.ReactNode }) 
     </div>
   );
 }
+
 

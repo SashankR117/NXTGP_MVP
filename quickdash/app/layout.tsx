@@ -37,23 +37,23 @@ export default function RootLayout({
       <body className="bg-[#0A0B10] text-gray-900 h-screen max-h-screen overflow-hidden font-sans antialiased">
         <AppProvider>
           {/* Smartphone Mockup Frame */}
-          <PhoneFrame>
+          <PhoneFrame
+            bottomNav={<BottomNav />}
+            controls={
+              <>
+                <ResetButton />
+                <GraderGuide />
+                <ToastContainer />
+              </>
+            }
+          >
             {/* Main scrollable content area */}
-            <main className="flex-1 pb-20">{children}</main>
-
-            {/* Bottom navigation bar */}
-            <BottomNav />
-
-            {/* Floating evaluation controls */}
-            <ResetButton />
-            <GraderGuide />
-
-            {/* Toast notifications */}
-            <ToastContainer />
+            <main className="min-h-full pb-6">{children}</main>
           </PhoneFrame>
         </AppProvider>
       </body>
     </html>
   );
 }
+
 
